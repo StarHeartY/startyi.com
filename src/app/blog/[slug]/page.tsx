@@ -19,12 +19,6 @@ function getSortedPosts() {
 
 export const runtime = "edge";
 
-export async function generateStaticParams() {
-  return allPosts.map((post) => ({
-    slug: post._meta.path.replace(/\.mdx$/, ""),
-  }));
-}
-
 export async function generateMetadata({
   params,
 }: {
