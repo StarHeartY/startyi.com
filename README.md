@@ -46,7 +46,7 @@
 4. 启动本地开发服务器：
 
    ```bash
-   pnpm run dev
+   pnpm run dev 
    ```
 5. 打开浏览器并访问 http://localhost:3000 即可预览效果。你可以通过修改 src/data/resume.tsx 文件来实时更新你的个人信息。
 
