@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>🚀 Yi Rui's Personal Portfolio</h1>
+  <h1>🚀 StarHeartY's Personal Portfolio</h1>
   <p>Personal business card & project showcase</p>
 </div>
 
