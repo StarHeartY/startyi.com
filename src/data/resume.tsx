@@ -12,6 +12,30 @@ import { Kubernetes } from "@/components/ui/svgs/kubernetes";
 import { Java } from "@/components/ui/svgs/java";
 import { Csharp } from "@/components/ui/svgs/csharp";
 
+type HackathonLink = {
+  href: string;
+  icon: React.ReactNode;
+  title: string;
+};
+
+type Hackathon = {
+  title: string;
+  dates: string;
+  location?: string;
+  description?: string;
+  image?: string;
+  links?: HackathonLink[];
+};
+
+type Work = {
+  company: string;
+  logoUrl: string;
+  title: string;
+  start: string;
+  end?: string;
+  description: string;
+};
+
 export const DATA = {
   name: "Yi Rui",
   initials: "YR",
@@ -74,7 +98,7 @@ export const DATA = {
     },
   },
 
-  work: [] as any[],
+  work: [] as Work[],
 
   education: [
     {
@@ -147,6 +171,6 @@ export const DATA = {
       video: "",
     },
   ],
-  hackathons: [] as any[],
+  hackathons: [] as Hackathon[],
   
 } as const;
