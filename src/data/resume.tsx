@@ -74,9 +74,8 @@ export const DATA = {
     },
   },
 
-  work: [
-    
-  ],
+  work: [] as any[],
+
   education: [
     {
       school: "暨南大学 (Jinan University)",
@@ -148,6 +147,6 @@ export const DATA = {
       video: "",
     },
   ],
-  hackathons: [],
+  hackathons: [] as any[],
   
 } as const;
