@@ -148,5 +148,6 @@ export const DATA = {
       video: "",
     },
   ],
+  hackathons: [],
   
 } as const;
