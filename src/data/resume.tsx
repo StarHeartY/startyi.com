@@ -21,7 +21,7 @@ export const DATA = {
   description:
     "Studying in the Software Engineering major at Jinan University. Active on GitHub.",
   summary:
-    "I am passionate about building elegant and efficient engineering solutions. I strive for ultimate code standards and geek aesthetics. 我热衷于构建优雅且高效的工程解决方案。追求极致的代码规范与极客美学。",
+    "I am passionate about building elegant and efficient engineering solutions. I strive for ultimate code standards and geek aesthetics.\n\n我热衷于构建优雅且高效的工程解决方案。追求极致的代码规范与极客美学。",
   avatarUrl: "/me.png",
   skills: [
     { name: "C++", icon: Csharp },

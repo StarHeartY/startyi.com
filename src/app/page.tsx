@@ -83,17 +83,17 @@ export default function Page() {
                   className="flex items-center gap-x-3 justify-between group"
                 >
                   <div className="flex items-center gap-x-3 flex-1 min-w-0">
-                    {education.logoUrl ? (
+                    {education.logoUrl ? ( // 校徽图片
                       <img
                         src={education.logoUrl}
                         alt={education.school}
-                        className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border overflow-hidden object-contain flex-none"
+                        className="size-8 md:size-16 p-1 border rounded-full shadow ring-2 ring-border overflow-hidden object-contain flex-none"
                       />
-                    ) : (
-                      <div className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border bg-muted flex-none" />
+                    ) : ( // 无校徽时的占位圆形
+                      <div className="size-8 md:size-16 p-1 border rounded-full shadow ring-2 ring-border bg-muted flex-none" />
                     )}
                     <div className="flex-1 min-w-0 flex flex-col gap-0.5">
-                      <div className="font-semibold leading-none flex items-center gap-2">
+                      <div className="text-lg md:text-xl font-semibold leading-none flex items-center gap-2"> {/* 学校名称 */}
                         {education.school}
                         <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" aria-hidden />
                       </div>
@@ -102,7 +102,7 @@ export default function Page() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-1 text-xs tabular-nums text-muted-foreground text-right flex-none">
+                  <div className="flex items-center gap-1 text-sm md:text-base tabular-nums text-muted-foreground text-right flex-none">
                     <span>
                       {education.start} - {education.end}
                     </span>

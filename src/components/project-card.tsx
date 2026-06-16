@@ -12,14 +12,14 @@ function ProjectImage({ src, alt }: { src: string; alt: string }) {
   const [imageError, setImageError] = useState(false);
 
   if (!src || imageError) {
-    return <div className="w-full h-48 bg-muted" />;
+    return <div className="w-full h-64 bg-muted" />;
   }
 
   return (
     <img
       src={src}
       alt={alt}
-      className="w-full h-48 object-cover"
+      className="w-full h-64 object-cover"
       onError={() => setImageError(true)}
     />
   );
@@ -75,12 +75,12 @@ export function ProjectCard({
               loop
               muted
               playsInline
-              className="w-full h-48 object-cover"
+              className="w-full h-64 object-cover"
             />
           ) : image ? (
             <ProjectImage src={image} alt={title} />
-          ) : (
-            <div className="w-full h-48 bg-muted" />
+          ) : ( 
+            <div className="w-full h-64 bg-muted" /> // 封面图的高度
           )}
         </Link>
         {links && links.length > 0 && (
@@ -108,8 +108,8 @@ export function ProjectCard({
       <div className="p-6 flex flex-col gap-3 flex-1">
         <div className="flex items-start justify-between gap-2">
           <div className="flex flex-col gap-1">
-            <h3 className="font-semibold">{title}</h3>
-            <time className="text-xs text-muted-foreground">{dates}</time>
+            <h3 className="text-xl font-semibold">{title}</h3> {/* 项目标题 */ }
+            <time className="text-sm text-muted-foreground">{dates}</time> {/* 项目日期 */ }
           </div>
           <Link
             href={href || "#"}
@@ -121,7 +121,7 @@ export function ProjectCard({
             <ArrowUpRight className="h-4 w-4" aria-hidden />
           </Link>
         </div>
-        <div className="text-xs flex-1 prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
+        <div className="text-sm flex-1 prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert"> {/* 项目描述，支持md */ }
           <Markdown>{description}</Markdown>
         </div>
         {tags && tags.length > 0 && (
@@ -129,7 +129,7 @@ export function ProjectCard({
             {tags.map((tag) => (
               <Badge
                 key={tag}
-                className="text-[11px] font-medium border border-border h-6 w-fit px-2"
+                className="text-xs font-medium border border-border h-7 w-fit px-2.5 py-0.5"
                 variant="outline"
               >
                 {tag}

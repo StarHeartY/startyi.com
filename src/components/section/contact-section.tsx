@@ -23,16 +23,29 @@ export default function ContactSection() {
         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
           Get in Touch
         </h2>
-        <p className="mx-auto max-w-lg text-muted-foreground text-balance">
-          欢迎与我交流技术或探讨合作。你可以随时通过{" "}
-          <Link
-            href="mailto:i@startyi.com"
-            className="text-blue-500 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
-          >
-            邮件
-          </Link>
-          {" "}与我联系。
-        </p>
+        <div className="mx-auto max-w-2xl text-muted-foreground text-balance flex flex-col gap-2">
+          {/* 英文部分 */}
+          <p className="opacity-80 text-sm sm:text-base">
+            Feel free to reach out for technical discussions or collaboration.<br />You can always contact me via{" "}
+            <Link
+              href="mailto:i@startyi.com"
+              className="text-blue-500 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+            >
+              Email
+            </Link>.
+          </p>
+          {/* 中文部分 */}
+          <p className="text-base sm:text-lg">
+            欢迎与我交流技术或探讨合作。你可以随时通过{" "}
+            <Link
+              href="mailto:i@startyi.com"
+              className="text-blue-500 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+            >
+              邮件
+            </Link>
+            {" "}与我联系。
+          </p>
+        </div>
       </div>
     </div>
   );
