@@ -123,7 +123,7 @@ export const DATA = {
         "ArkTS",
         "DevEco Studio",
         "CAS",
-        "SysEngine",
+        "SymEngine",
         "Giac",
         "MathLive",
       ],
