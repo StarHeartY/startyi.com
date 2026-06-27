@@ -4,20 +4,30 @@
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
+import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useState } from "react";
 import Markdown from "react-markdown";
 
-function ProjectImage({ src, alt }: { src: string; alt: string }) {
-  const [imageError, setImageError] = useState(false);
+type ImageSource = string | { light: string; dark: string };
 
-  if (!src || imageError) {
+function resolveImageSrc(src: ImageSource, resolvedTheme: string): string {
+  if (typeof src === "string") return src;
+  return resolvedTheme === "dark" ? src.dark : src.light;
+}
+
+function ProjectImage({ src, alt }: { src: ImageSource; alt: string }) {
+  const [imageError, setImageError] = useState(false);
+  const { resolvedTheme } = useTheme();
+  const resolved = resolveImageSrc(src, resolvedTheme ?? "light");
+
+  if (!resolved || imageError) {
     return <div className="w-full h-64 bg-muted" />;
   }
 
   return (
     <img
-      src={src}
+      src={resolved}
       alt={alt}
       className="w-full h-64 object-cover"
       onError={() => setImageError(true)}
@@ -32,7 +42,7 @@ interface Props {
   dates: string;
   tags: readonly string[];
   link?: string;
-  image?: string;
+  image?: ImageSource;
   video?: string;
   links?: readonly {
     icon: React.ReactNode;

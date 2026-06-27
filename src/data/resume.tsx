@@ -148,7 +148,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "/CalculatorX.png",
+      image: { light: "/CalculatorX.png", dark: "/CalculatorX_dark.png" },
       video: "",
     },
     {
@@ -178,7 +178,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "/Jihuway.png",
+      image: { light: "/Jihuway.png", dark: "/Jihuway_dark.png" },
       video: "",
     },
   ],
