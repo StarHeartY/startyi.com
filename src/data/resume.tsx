@@ -11,6 +11,7 @@ import { Docker } from "@/components/ui/svgs/docker";
 import { Kubernetes } from "@/components/ui/svgs/kubernetes";
 import { Java } from "@/components/ui/svgs/java";
 import { Csharp } from "@/components/ui/svgs/csharp";
+import type { LocalizedString } from "@/lib/i18n";
 
 type HackathonLink = {
   href: string;
@@ -42,10 +43,15 @@ export const DATA = {
   url: "https://startyi.com",
   location: "Guangzhou, CN",
   locationLink: "https://www.google.com/maps/place/guangzhou",
-  description:
-    "Studying in the Software Engineering major at Jinan University. Active on GitHub.",
-  summary:
-    "I am passionate about building elegant and efficient engineering solutions. I strive for ultimate code standards and geek aesthetics.\n\n我热衷于构建优雅且高效的工程解决方案。追求极致的代码规范与极客美学。",
+  description: {
+    en: "Building software that starts with curiosity and ends with something people can actually use.",
+    zh: "从一份好奇心出发，做出真正能用的东西。",
+
+  } satisfies LocalizedString,
+  summary: {
+    en: "Software Engineering student at Jinan University. I love building software—whether it's crafting polished apps, tinkering with new tech, or just seeing where an idea leads.\n\nRight now, I'm diving deep into software development and modern web technologies. I've built applications, websites, and a few personal products along the way.For me, the real thrill isn't just writing code—it's taking a rough concept and shaping it into something that actually works and people can use.\n\nOutside of coding, I'm genuinely interested in great design and solid engineering practices. I follow the open-source community, contribute to interesting projects when I can, and I'm always up for a good conversation.Feel free to reach out—I'd love to connect.",
+    zh: "暨南大学软件工程专业在读，喜欢开发软件，也喜欢折腾各种新技术。\n\n目前主要在探索软件与现代 Web 开发，做过应用、网站和一些个人产品。从写第一行代码到部署上线，我更享受的是把一个想法逐渐打磨成真正能够使用的作品。\n\n除了写代码，我也喜欢研究优秀的软件设计和工程实践，关注开源社区，偶尔也会参与一些有意思的项目，欢迎一起交流。",
+  } satisfies LocalizedString,
   avatarUrl: "/me.png",
   skills: [
     { name: "C++", icon: Csharp },
@@ -58,8 +64,9 @@ export const DATA = {
     { name: "Docker", icon: Docker },
   ],
   navbar: [
-    { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "https://blog.startyi.com", icon: NotebookIcon, label: "Blog" },
+    { href: "/", icon: HomeIcon, label: { en: "Home", zh: "首页" } satisfies LocalizedString },
+    { href: "https://blog.startyi.com", icon: NotebookIcon, label: { en: "Blog", zh: "博客" } satisfies LocalizedString },
+    
   ],
   contact: {
     email: "hello@example.com",
@@ -102,9 +109,9 @@ export const DATA = {
 
   education: [
     {
-      school: "暨南大学 (Jinan University)",
+      school: { en: "Jinan University", zh:"暨南大学 (Jinan University)"},
       href: "https://www.jnu.edu.cn",
-      degree: "软件工程 本科 (B.E. in Software Engineering)",
+      degree: { en: "B.E. in Software Engineering", zh: "软件工程 本科" } satisfies LocalizedString,
       logoUrl: "/Jinan_University.svg",
       start: "2024",
       end: "2028",
@@ -114,10 +121,12 @@ export const DATA = {
     {
       title: "CalculatorX",
       href: "https://github.com/StarHeartY/CalculatorX",
-      dates: "2026",
+      dates: { en: "2026", zh: "2026" } satisfies LocalizedString,
       active: true,
-      description:
-        "一款基于 HarmonyOS 的多功能科学计算器，涵盖复杂的数学运算逻辑，拥有极其纯净且符合直觉的现代化 UI 设计。",
+      description: {
+        en: "A multi-functional scientific calculator built on HarmonyOS, featuring complex mathematical computation logic with a clean and intuitive modern UI design.",
+        zh: "一款基于 HarmonyOS 的多功能科学计算器，涵盖复杂的数学运算逻辑，拥有极其纯净且符合直觉的现代化 UI 设计。",
+      } satisfies LocalizedString,
       technologies: [
         "HarmonyOS",
         "ArkTS",
@@ -145,10 +154,12 @@ export const DATA = {
     {
       title: "霁湖行舟 (Jihuway)",
       href: "https://jihuway.org",
-      dates: "2026 - 至今",
+      dates: { en: "2026 - Present", zh: "2026 - 至今" } satisfies LocalizedString,
       active: true,
-      description:
-        "作为联合创始人，主导搭建的高校校友互助平台。旨在为学弟学妹提供真实、有价值的升学与专业经验分享，打破信息差。",
+      description: {
+        en: "As co-founder, I led the development of this university alumni mutual-help platform, designed to provide students with authentic and valuable insights on academic advancement and major selection, bridging the information gap.",
+        zh: "作为联合创始人，主导搭建的高校校友互助平台。旨在为学弟学妹提供真实、有价值的升学与专业经验分享，打破信息差。",
+      } satisfies LocalizedString,
       technologies: [
         "Astro",
         "Web Development",
