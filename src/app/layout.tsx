@@ -21,18 +21,35 @@ const geistMono = Geist_Mono({
   variable: "--font-mono",
 });
 
+const META_DESCRIPTION =
+  "Yi Rui — Software Engineering student at Jinan University. " +
+  "Full-stack developer skilled in React, Next.js, TypeScript, Python, and C++. " +
+  "Builder of CalculatorX and co-founder of Jihuway. Based in Guangzhou, China.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(DATA.url),
   title: {
-    default: DATA.name,
-    template: `%s | ${DATA.name}`,
+    default: "Yi Rui — Software Engineer & Full-Stack Developer",
+    template: `%s | Yi Rui`,
   },
-  description: DATA.description.en,
+  description: META_DESCRIPTION,
+  keywords: [
+    "Yi Rui",
+    "Software Engineer",
+    "Full-Stack Developer",
+    "Jinan University",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Python",
+    "CalculatorX",
+    "Portfolio",
+  ],
   openGraph: {
-    title: `${DATA.name}`,
-    description: DATA.description.en,
+    title: "Yi Rui — Software Engineer & Full-Stack Developer",
+    description: META_DESCRIPTION,
     url: DATA.url,
-    siteName: `${DATA.name}`,
+    siteName: "Yi Rui",
     locale: "en_US",
     type: "website",
   },
@@ -48,13 +65,41 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: `${DATA.name}`,
+    title: "Yi Rui — Software Engineer & Full-Stack Developer",
+    description: META_DESCRIPTION,
     card: "summary_large_image",
   },
   verification: {
     google: "",
     yandex: "",
   },
+};
+
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Yi Rui",
+  url: DATA.url,
+  jobTitle: "Software Engineer",
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Jinan University",
+  },
+  knowsAbout: [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Python",
+    "C++",
+    "Node.js",
+    "Docker",
+    "Web Development",
+    "HarmonyOS",
+  ],
+  sameAs: [
+    "https://github.com/StarHeartY",
+    "https://www.linkedin.com/in/yirui-dev",
+  ],
 };
 
 export default function RootLayout({
@@ -89,6 +134,10 @@ export default function RootLayout({
                 {children}
               </div>
               <Navbar />
+              <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+              />
             </TooltipProvider>
           </ThemeProvider>
         </LocaleProvider>
