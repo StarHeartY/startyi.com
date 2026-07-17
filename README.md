@@ -50,6 +50,7 @@
    ```
 5. 打开浏览器并访问 http://localhost:3000 即可预览效果。你可以通过修改 src/data/resume.tsx 文件来实时更新你的个人信息。
 
+
 ## 📄 致谢与开源协议
 
 - 基础模板由 [Dillion Verma](https://github.com/dillionverma/portfolio) 设计.
