@@ -72,6 +72,9 @@ export const metadata: Metadata = {
   verification: {
     google: "",
     yandex: "",
+    other: {
+      "baidu-site-verification": "codeva-cltluBti6H",
+    },
   },
 };
 
