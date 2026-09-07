@@ -1,4 +1,5 @@
 import Navbar from "@/components/navbar";
+import IcpLink from "@/components/icp-link";
 import { ThemeProvider } from "@/components/theme-provider";
 import { LocaleProvider } from "@/components/locale-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -136,6 +137,9 @@ export default function RootLayout({
               <div className="relative z-10 max-w-4xl mx-auto py-12 pb-24 sm:py-24 px-6">
                 {children}
               </div>
+              <footer className="relative z-10 flex justify-center pb-8">
+                <IcpLink />
+              </footer>
               <Navbar />
               <script
                 type="application/ld+json"
