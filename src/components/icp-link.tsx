@@ -14,13 +14,15 @@ export default function IcpLink() {
   if (!visible) return null;
 
   return (
-    <a
-      href="https://beian.miit.gov.cn/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-muted-foreground/60 hover:text-muted-foreground text-xs transition-colors"
-    >
-      赣ICP备2026021841号
-    </a>
+    <footer className="mt-6 flex justify-center">
+      <a
+        href="https://beian.miit.gov.cn/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-muted-foreground/60 hover:text-muted-foreground text-xs transition-colors"
+      >
+        赣ICP备2026021841号
+      </a>
+    </footer>
   );
 }
