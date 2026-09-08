@@ -34,6 +34,11 @@ const dict = {
     },
     emailLabel: { en: "Email", zh: "邮件" },
   },
+  theme: {
+    system: { en: "Theme: follow system", zh: "主题：跟随系统" },
+    light: { en: "Theme: light", zh: "主题：浅色" },
+    dark: { en: "Theme: dark", zh: "主题：深色" },
+  },
   notFound: {
     title: { en: "Page Not Found", zh: "页面未找到" },
     description: {

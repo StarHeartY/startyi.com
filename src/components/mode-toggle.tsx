@@ -1,12 +1,34 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
-import { useTheme } from "next-themes";
+import { useLocale } from "@/components/locale-provider";
+import { t } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
+import { DesktopIcon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+
+// 与 Nextra(CalcX-docs)一致的三态循环：跟随系统 → 浅色 → 深色 → 跟随系统
+const NEXT_THEME = {
+  system: "light",
+  light: "dark",
+  dark: "system",
+} as const;
+
+type ThemeState = keyof typeof NEXT_THEME;
 
 export function ModeToggle({ className }: { className?: string }) {
   const { theme, setTheme } = useTheme();
+  const { locale } = useLocale();
+  const [mounted, setMounted] = useState(false);
+
+  // next-themes 在客户端首帧即同步读取 localStorage，与服务端默认值不同，
+  // 直接渲染 theme 会导致 hydration 不一致；挂载前统一按“跟随系统”渲染
+  useEffect(() => setMounted(true), []);
+
+  const current: ThemeState =
+    mounted && (theme === "light" || theme === "dark") ? theme : "system";
+  const label = t(locale, `theme.${current}`);
 
   return (
     <Button
@@ -14,10 +36,17 @@ export function ModeToggle({ className }: { className?: string }) {
       variant="link"
       size="icon"
       className={cn(className)}
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      title={label}
+      aria-label={label}
+      onClick={() => setTheme(NEXT_THEME[current])}
     >
-      <SunIcon className="h-full w-full" />
-      <MoonIcon className="hidden h-full w-full" />
+      {current === "light" ? (
+        <SunIcon className="h-full w-full" />
+      ) : current === "dark" ? (
+        <MoonIcon className="h-full w-full" />
+      ) : (
+        <DesktopIcon className="h-full w-full" />
+      )}
     </Button>
   );
 }
