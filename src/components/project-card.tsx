@@ -1,39 +1,11 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
+import { LocalizedImage } from "@/components/localized-image";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
-import { useTheme } from "next-themes";
 import Link from "next/link";
-import { useState } from "react";
 import Markdown from "react-markdown";
-
-type ImageSource = string | { light: string; dark: string };
-
-function resolveImageSrc(src: ImageSource, resolvedTheme: string): string {
-  if (typeof src === "string") return src;
-  return resolvedTheme === "dark" ? src.dark : src.light;
-}
-
-function ProjectImage({ src, alt }: { src: ImageSource; alt: string }) {
-  const [imageError, setImageError] = useState(false);
-  const { resolvedTheme } = useTheme();
-  const resolved = resolveImageSrc(src, resolvedTheme ?? "light");
-
-  if (!resolved || imageError) {
-    return <div className="w-full h-64 bg-muted" />;
-  }
-
-  return (
-    <img
-      src={resolved}
-      alt={alt}
-      className="w-full h-64 object-cover"
-      onError={() => setImageError(true)}
-    />
-  );
-}
 
 interface Props {
   title: string;
@@ -42,7 +14,7 @@ interface Props {
   dates: string;
   tags: readonly string[];
   link?: string;
-  image?: ImageSource;
+  image?: string;
   video?: string;
   links?: readonly {
     icon: React.ReactNode;
@@ -88,8 +60,12 @@ export function ProjectCard({
               className="w-full h-64 object-cover"
             />
           ) : image ? (
-            <ProjectImage src={image} alt={title} />
-          ) : ( 
+            <LocalizedImage
+              src={image}
+              alt={title}
+              className="w-full h-64 object-cover"
+            />
+          ) : (
             <div className="w-full h-64 bg-muted" /> // 封面图的高度
           )}
         </Link>
