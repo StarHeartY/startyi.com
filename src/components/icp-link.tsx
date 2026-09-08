@@ -21,7 +21,7 @@ export default function IcpLink() {
         rel="noopener noreferrer"
         className="text-muted-foreground/60 hover:text-muted-foreground text-xs transition-colors"
       >
-        赣ICP备2026021841号
+        赣ICP备2026021841号-1
       </a>
     </footer>
   );
