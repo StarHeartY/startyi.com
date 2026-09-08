@@ -34,6 +34,9 @@ export const metadata: Metadata = {
     template: `%s | Yi Rui`,
   },
   description: META_DESCRIPTION,
+  alternates: {
+    canonical: "/",
+  },
   keywords: [
     "Yi Rui",
     "Software Engineer",
