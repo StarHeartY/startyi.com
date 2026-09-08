@@ -1,7 +1,7 @@
 "use client";
 
 import { Dock, DockIcon } from "@/components/magicui/dock";
-import { ModeToggle } from "@/components/mode-toggle";
+import { ModeToggle, useThemeState } from "@/components/mode-toggle";
 import { Separator } from "@/components/ui/separator";
 import {
   Tooltip,
@@ -11,10 +11,11 @@ import {
 } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
 import { useLocale } from "@/components/locale-provider";
-import { pickLocalized } from "@/lib/i18n";
+import { pickLocalized, t } from "@/lib/i18n";
 
 export default function Navbar() {
   const { locale, setLocale } = useLocale();
+  const themeState = useThemeState();
 
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-4 z-30">
@@ -93,7 +94,7 @@ export default function Navbar() {
             sideOffset={8}
             className="rounded-xl bg-primary text-primary-foreground px-4 py-2 text-sm shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] dark:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]"
           >
-            <p>Theme</p>
+            <p>{t(locale, `theme.${themeState}`)}</p>
             <TooltipArrow className="fill-primary" />
           </TooltipContent>
         </Tooltip>

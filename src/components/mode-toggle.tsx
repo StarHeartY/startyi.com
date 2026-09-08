@@ -17,17 +17,21 @@ const NEXT_THEME = {
 
 type ThemeState = keyof typeof NEXT_THEME;
 
-export function ModeToggle({ className }: { className?: string }) {
-  const { theme, setTheme } = useTheme();
-  const { locale } = useLocale();
+export function useThemeState(): ThemeState {
+  const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   // next-themes 在客户端首帧即同步读取 localStorage，与服务端默认值不同，
-  // 直接渲染 theme 会导致 hydration 不一致；挂载前统一按“跟随系统”渲染
+  // 直接渲染 theme 会导致 hydration 不一致；挂载前统一按“跟随系统”处理
   useEffect(() => setMounted(true), []);
 
-  const current: ThemeState =
-    mounted && (theme === "light" || theme === "dark") ? theme : "system";
+  return mounted && (theme === "light" || theme === "dark") ? theme : "system";
+}
+
+export function ModeToggle({ className }: { className?: string }) {
+  const { setTheme } = useTheme();
+  const { locale } = useLocale();
+  const current = useThemeState();
   const label = t(locale, `theme.${current}`);
 
   return (
@@ -36,7 +40,6 @@ export function ModeToggle({ className }: { className?: string }) {
       variant="link"
       size="icon"
       className={cn(className)}
-      title={label}
       aria-label={label}
       onClick={() => setTheme(NEXT_THEME[current])}
     >

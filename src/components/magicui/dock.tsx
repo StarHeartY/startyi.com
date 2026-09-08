@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { motion, type MotionValue, useMotionValue, useSpring, useTransform } from "motion/react";
-import { createContext, useContext, useRef, type ReactNode } from "react";
+import { createContext, useContext, useRef, type ReactNode, type Ref } from "react";
 
 interface DockProps {
   className?: string;
@@ -14,6 +14,7 @@ interface DockProps {
 interface DockIconProps {
   className?: string;
   children?: ReactNode;
+  ref?: Ref<HTMLDivElement>;
 }
 
 const DEFAULT_MAGNIFICATION = 60;
@@ -47,8 +48,8 @@ const Dock = ({ className, children, magnification = DEFAULT_MAGNIFICATION, dist
   );
 };
 
-const DockIcon = ({ className, children }: DockIconProps) => {
-  const ref = useRef<HTMLDivElement>(null);
+const DockIcon = ({ className, children, ref: forwardedRef, ...props }: DockIconProps) => {
+  const innerRef = useRef<HTMLDivElement>(null);
   const context = useContext(DockContext);
 
   if (!context) {
@@ -58,7 +59,7 @@ const DockIcon = ({ className, children }: DockIconProps) => {
   const { mouseX, magnification, distance } = context;
 
   const distanceCalc = useTransform(mouseX, (val: number) => {
-    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
+    const bounds = innerRef.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
     return val - bounds.x - bounds.width / 2;
   });
 
@@ -71,9 +72,20 @@ const DockIcon = ({ className, children }: DockIconProps) => {
     SPRING
   );
 
+  // 合并内部放大动画用的 ref 与外部传入的 ref（如 Radix TooltipTrigger 经 asChild 传入）
+  const setRef = (node: HTMLDivElement | null) => {
+    innerRef.current = node;
+    if (typeof forwardedRef === "function") {
+      forwardedRef(node);
+    } else if (forwardedRef) {
+      forwardedRef.current = node;
+    }
+  };
+
   return (
     <motion.div
-      ref={ref}
+      {...props}
+      ref={setRef}
       style={{ width: containerSize, height: containerSize }}
       className={cn("relative flex aspect-square items-center justify-center rounded-full shrink-0", className)}
     >
