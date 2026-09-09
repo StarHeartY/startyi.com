@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>🚀 StarHeartY's Personal Portfolio</h1>
+  <h1>🚀 StartYR's Personal Portfolio</h1>
   <p>Personal business card & project showcase</p>
 </div>
 
@@ -29,7 +29,7 @@ If you'd like to run or preview this project locally:
 1. Clone the repository to your local environment:
 
    ```bash
-   git clone https://github.com/StarHeartY/startyi.com.git
+   git clone https://github.com/StartYR/startyi.com.git
    ```
 
 2. Navigate into the project directory:

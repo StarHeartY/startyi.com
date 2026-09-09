@@ -30,7 +30,7 @@
 1. 将本仓库克隆到本地环境：
 
    ```bash
-   git clone https://github.com/StarHeartY/startyi.com.git
+   git clone https://github.com/StartYR/startyi.com.git
    ```
 
 2. 进入项目目录：

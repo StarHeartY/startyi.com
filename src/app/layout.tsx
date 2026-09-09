@@ -104,7 +104,7 @@ const JSON_LD = {
     "HarmonyOS",
   ],
   sameAs: [
-    "https://github.com/StarHeartY",
+    "https://github.com/StartYR",
     "https://www.linkedin.com/in/yirui-dev",
   ],
 };

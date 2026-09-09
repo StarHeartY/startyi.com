@@ -74,7 +74,7 @@ export const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://github.com/StarHeartY",
+        url: "https://github.com/StartYR",
         icon: Icons.github,
         navbar: true,
       },
@@ -120,7 +120,7 @@ export const DATA = {
   projects: [
     {
       title: "CalculatorX",
-      href: "https://github.com/StarHeartY/CalculatorX",
+      href: "https://github.com/StartYR/CalculatorX",
       dates: { en: "2026", zh: "2026" } satisfies LocalizedString,
       active: true,
       description: {
@@ -144,7 +144,7 @@ export const DATA = {
         },
         {
           type: "Github",
-          href: "https://github.com/StarHeartY/CalculatorX",
+          href: "https://github.com/StartYR/CalculatorX",
           icon: <Icons.github className="size-3" />,
         },
       ],
